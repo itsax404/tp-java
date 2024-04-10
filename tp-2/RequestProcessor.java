@@ -1,17 +1,19 @@
 import java.io.File;
 import java.net.Socket;
 
-public class RequestProcessor {
+public class RequestProcessor implements Runnable{
 	
 	private HttpContext context;
 	
 	public RequestProcessor(Socket socket){
 		this.context = new HttpContext(socket);
-		this.process();
 	}
 
-	private void process(){
+	@Override
+	public void run(){
 		String url = this.context.getRequest().getUrl();
+		String method = this.context.getRequest().getMethod();
+		System.out.println("URL : " + url + " | Méthode : " + method);
 		File fileAsked = new File("./public"+url);
 		if(url.equals("\\")){
 			this.context.getResponse().sendFile("text/html", "/public/index.html");	
