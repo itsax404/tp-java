@@ -23,7 +23,7 @@ public class WebServer {
 
 	private void sendResponse(Socket socket){
 		try{
-			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(s.getInputStream()));
+			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 			writer.write("HTTP/1.0 200 OK\r\n");
 			writer.flush();
 			writer.close();
@@ -33,14 +33,17 @@ public class WebServer {
 	}
 
 	public void run(int portNumber){
-		Socket socket = new ServerSocket(portNumber);
-		while(true){
-			Socket clientSocket = socket.accept();
-			this.readRequest(clientSocket);
-			this.sendResponse(clientSocket);
+		try{
+			ServerSocket socket = new ServerSocket(portNumber);
+			while(true){
+				Socket clientSocket = socket.accept();
+				this.readRequest(clientSocket);
+				this.sendResponse(clientSocket);
 
-			clientSocket.close();
+				clientSocket.close();
+			}
+		} catch(IOException e){
+			e.printStackTrace();
 		}
-
 	}
 }
