@@ -11,7 +11,7 @@ public class Application{
         // point.move(vector);
         // System.out.println(point);
 
-        Scanner entree = new Scanner(System.in); 
+        ScannerTools entree = new ScannerTools(); 
         print("Veuillez saisir une chaîne de caractères : ");
         String stringEntree = entree.nextLine();
         print("Veuillez saisir un entier : ");
