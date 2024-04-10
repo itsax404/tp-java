@@ -1,0 +1,101 @@
+body{
+	font-family: "Segoe UI", Arial, sans-serif;
+	margin: 0;
+}
+
+.contenu{
+	width: 98%;
+	margin: auto;
+}
+
+header {
+	background-color: #eee;
+	box-shadow: 0 0 10px #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+}
+
+.logo-entete{
+	width: 200px;
+}
+
+.liens a{
+	padding: 20px;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+.liens a:link, a:visited{
+	color: #4691ff;
+}
+
+h1{
+	padding: 10px;
+	border-bottom: solid 1px#4691ff;
+	color: #4691ff;
+}
+
+.presentation p{
+	text-align: justify;
+}
+
+.presentation strong{
+	color: #4691ff;
+}
+
+.presentation video{
+	display: block;
+	margin: auto;
+	width: 500px;
+}
+
+.actus-items{
+	display: flex;
+	justify-content: space-around;
+}
+
+.actus-item {
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+}
+
+.actus-item h2{
+	color: #555;
+}
+
+.actus-item img {
+	width: 200px;
+	border-radius: 10px;
+}
+
+.actus-item p {
+	font-size: 0.7em;
+}
+
+footer {
+	background-color: #000;
+	display: flex;
+	justify-content: center;
+}
+
+footer p {
+	color:  #fff;
+}
+
+@media screen and (max-width: 900px){
+	.actus-items{
+		flex-direction: column;
+	}
+	.liens a{
+		width: 0.8em;
+	}
+	.h1 {
+		text-align: center;
+	}
+	video{
+		width: 90%;
+	}
+}
