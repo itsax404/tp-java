@@ -13,6 +13,7 @@ public class RequestProcessor {
 		String url = this.context.getRequest().getUrl();
 		if(url.equals("\\")){
 			this.context.getResponse().ok("OK");
+			this.context.getResponse().sendContext("text/html", "<strong>Hello World!</strong>");
 		}else{
 			this.context.getResponse().notFound("Not Found");
 		}

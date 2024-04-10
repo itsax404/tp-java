@@ -19,7 +19,6 @@ public class HttpResponse {
 		try {
 			this.output.write("HTTP/1.0 200 " + message);
 			this.output.flush();
-			this.output.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -29,8 +28,20 @@ public class HttpResponse {
 		try {
 			this.output.write("HTTP/1.0 404 " + message);
 			this.output.flush();
-			this.output.close();
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void sendContext(String contextType, String content){
+		try{
+			this.output.write("HTTP/1.0 200\n");
+			this.output.write("Content-Type: " + contextType + "\n");
+			this.output.write("Content-Length: " + content.length() + "\n");
+			this.output.write("\n");
+			this.output.write(content);
+			this.output.flush();
+		} catch (IOException e){
 			e.printStackTrace();
 		}
 	}

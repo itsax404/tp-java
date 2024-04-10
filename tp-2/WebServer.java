@@ -14,7 +14,7 @@ public class WebServer {
 			while(true){
 				Socket clientSocket = socket.accept();
 				RequestProcessor requestProcessor = new RequestProcessor(clientSocket);
-			}
+			}	
 		} catch(IOException e){
 			e.printStackTrace();
 		}
