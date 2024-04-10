@@ -38,9 +38,9 @@ public class Application{
 
         for(int i = 0; i < nbPoints; i++ ){
             print("Veuillez entrer la composante x du point "+(i+1) + " :");
-            int x = entree.nextInt();
+            double x = entree.nextDouble();
             print("Veuillez entrer la composante y du point "+(i+1) + " :");
-            int y = entree.nextInt();
+            double y = entree.nextDouble();
 
             points.add(new Point(x, y));
         }

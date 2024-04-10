@@ -10,18 +10,7 @@ public class ScannerTools {
     }
 
     public int nextInt(){
-        Integer integer = null;
-        while(integer == null){
-            try{
-                integer = this.scanner.nextInt();
-            }catch(InputMismatchException e){
-                System.out.println("Vous avez entrer une valeur qui n'est pas un entier");
-                System.out.println("Veuillez entrer un entier : ");
-                this.scanner.nextLine();
-                integer = null;
-            }
-        }
-        return integer;
+        return (int) this.nextDouble();
     }
 
     public String nextLine(){
